@@ -32,7 +32,7 @@
 	ignore = dirty
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
-	url = https://github.com/xenolinguist/syntastic.git
+url = https://github.com/vim-syntastic/syntastic.git
 	ignore = dirty
 [submodule "bundle/irblack"]
 	path = bundle/irblack
