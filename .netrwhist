@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/mmatlock/sandbox/cyp_rates/sciscons'
+let g:netrw_dirhist_2='/home/mmatlock/sandbox/cyp_rates/raw_data/jed_p450'
+let g:netrw_dirhist_3='/home/mmatlock/.python-eggs'
+let g:netrw_dirhist_4='/home/mmatlock/sandbox/cyp_rates/sciscons'
+let g:netrw_dirhist_5='/home/mmatlock/sandbox/xenosite/xenosite/learn'
+let g:netrw_dirhist_6='/home/mmatlock/sandbox/cyp_rates/scons'
+let g:netrw_dirhist_7='/home/mmatlock/sandbox/cyp_rates/modules'
+let g:netrw_dirhist_8='/etc/uwsgi/apps-available'
+let g:netrw_dirhist_9='/home/mmatlock/sandbox/cyp_rates/scons'

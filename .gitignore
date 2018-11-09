@@ -1,5 +1,2 @@
 autoload/
-*.swp
-*~
-backup
-.netrwhist
+

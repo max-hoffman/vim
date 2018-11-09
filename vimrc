@@ -1,5 +1,12 @@
+" Pathogen load
+filetype off
+
+call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
+filetype plugin indent on
+syntax on
 
 set nocompatible
 
@@ -17,6 +24,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set list listchars=tab:\ \ ,trail:·
+
+" Set leader
+" let leader = "<Space>"
 
 " Searching
 set hlsearch
@@ -74,8 +84,11 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
-" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+" make Python follow PEP8, sort of ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=150
+let g:pymode_lint_checkers=['pyflakes', 'mccabe']
+let g:pymode_rope_autoimport = 0
+let g:pymode_rope = 0
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -102,6 +115,7 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
+
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_balloons=1
@@ -115,8 +129,8 @@ set modelines=10
 color desert
 
 " Directories for swp files
-set backupdir=~/vimfiles/backup
-set directory=~/vimfiles/backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
 
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 0
@@ -130,3 +144,44 @@ set showcmd
 
 map <C-TAB> :tabnext<CR>
 map <C-S-TAB> :tabprev<CR>
+
+autocmd bufread,bufnewfile *.scons set expandtab
+autocmd bufread,bufnewfile *.scons set tabstop=4
+autocmd bufread,bufnewfile *.scons set shiftwidth=4
+autocmd bufread,bufnewfile SConstruct set expandtab
+autocmd bufread,bufnewfile SConstruct set tabstop=4
+autocmd bufread,bufnewfile SConstruct set shiftwidth=4
+
+noremap <silent> <Leader>w :call ToggleWrap()<CR>
+function ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    setlocal nowrap
+    set virtualedit=all
+    silent! nunmap <buffer> <Up>
+    silent! nunmap <buffer> <Down>
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+  else
+    echo "Wrap ON"
+    setlocal wrap linebreak nolist
+    set virtualedit=
+    setlocal display+=lastline
+    noremap  <buffer> <silent> <Up>   gk
+    noremap  <buffer> <silent> <Down> gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+  endif
+endfunction
+
+" Addtionnal config
+inoremap jk <ESC>
+
