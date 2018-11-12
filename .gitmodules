@@ -60,3 +60,6 @@ url = https://github.com/vim-syntastic/syntastic.git
 [submodule "bundle/mustache"]
 	path = bundle/mustache
 	url = https://github.com/juvenn/mustache.vim.git
+[submodule "bundle/docker"]
+	path = bundle/docker
+	url = https://github.com/docker/docker
