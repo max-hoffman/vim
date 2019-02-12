@@ -49,6 +49,7 @@ set noequalalways
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
