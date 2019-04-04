@@ -153,6 +153,10 @@ autocmd bufread,bufnewfile SConstruct set expandtab
 autocmd bufread,bufnewfile SConstruct set tabstop=4
 autocmd bufread,bufnewfile SConstruct set shiftwidth=4
 
+autocmd bufread,bufnewfile Snakefile set syntax=snakemake
+autocmd bufread,bufnewfile *.smk set syntax=snakemake
+autocmd bufread,bufnewfile Snakefile.* set syntax=snakemake
+
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
   if &wrap
