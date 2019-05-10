@@ -57,5 +57,27 @@ syn sync match pythonSync grouphere NONE "^\s*\%(rule\|subworkflow\)\s\+\h\w*\s*
 
 let b:current_syntax = "snakemake"
 
-" vim:set sw=2 sts=2 ts=8 noet:
+set smartindent expandtab tabstop=4 shiftwidth=4
+" set smartindent   " Do smart autoindenting when starting a new line
+" set shiftwidth=4  " Set number of spaces per auto indentation
+" set expandtab     " When using <Tab>, put spaces instead of a <tab> character
 
+" ---- Good to have for consistency
+"  set tabstop=4   " Number of spaces that a <Tab> in the file counts for
+"  set smarttab    " At <Tab> at beginning line inserts spaces set in
+
+"  " ---- Bonus for proving the setting
+"  " Displays '-' for trailing space, '>-' for tabs and '_' for non breakable
+"  space
+set listchars=tab:>-,trail:·,nbsp:_
+set list
+
+" similar to special def and class treatment from python.vim, except
+" parenthetical part of def and class
+syn match   pythonFunction
+      \ "\%(\%(rule\s\|subworkflow\s\)\s*\)\@<=\h\w*" contained
+
+syn sync match pythonSync grouphere NONE "^\s*\%(rule\|subworkflow\)\s\+\h\w*\s*"
+
+
+" vim:set sw=2 sts=2 ts=8 noet:

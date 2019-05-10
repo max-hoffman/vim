@@ -21,7 +21,7 @@ set encoding=utf-8
 set nowrap
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+"set softtabstop=4
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
@@ -149,13 +149,16 @@ map <C-S-TAB> :tabprev<CR>
 autocmd bufread,bufnewfile *.scons set expandtab
 autocmd bufread,bufnewfile *.scons set tabstop=4
 autocmd bufread,bufnewfile *.scons set shiftwidth=4
-autocmd bufread,bufnewfile SConstruct set expandtab
-autocmd bufread,bufnewfile SConstruct set tabstop=4
-autocmd bufread,bufnewfile SConstruct set shiftwidth=4
+"autocmd bufread,bufnewfile SConstruct set expandtab
+"autocmd bufread,bufnewfile SConstruct set tabstop=4
+"autocmd bufread,bufnewfile SConstruct set shiftwidth=4
 
 autocmd bufread,bufnewfile Snakefile set syntax=snakemake
+autocmd bufread,bufnewfile Smakefile set syntax=python
 autocmd bufread,bufnewfile *.smk set syntax=snakemake
 autocmd bufread,bufnewfile Snakefile.* set syntax=snakemake
+autocmd bufread,bufnewfile,bufenter SConstruct.* setlocal filetype=python
+autocmd bufread,bufnewfile,bufenter SConstruct setlocal filetype=python
 
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
