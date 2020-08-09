@@ -2,7 +2,6 @@
 filetype off
 
 call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 filetype plugin indent on
@@ -159,6 +158,8 @@ autocmd bufread,bufnewfile *.smk set syntax=snakemake
 autocmd bufread,bufnewfile Snakefile.* set syntax=snakemake
 autocmd bufread,bufnewfile,bufenter SConstruct.* setlocal filetype=python
 autocmd bufread,bufnewfile,bufenter SConstruct setlocal filetype=python
+autocmd bufread,bufnewfile,bufenter *.scala setlocal filetype=scala
+autocmd bufread,bufnewfile,bufenter *.hcl setlocal filetype=tf
 
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
@@ -193,3 +194,13 @@ endfunction
 " Addtionnal config
 inoremap jk <ESC>
 
+set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+"map <ScrollWheelUp> <C-Y>
+"map <ScrollWheelDown> <C-E>
+map <ScrollWheelUp> <Up>
+map <ScrollWheelDown> <Down>
